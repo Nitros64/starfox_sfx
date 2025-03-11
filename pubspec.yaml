@@ -1,0 +1,155 @@
+name: starfox_sfx
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.0
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:  
+  flutter:
+    sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.8
+  # audioplayers: ^6.2.0
+  just_audio: ^0.9.46
+  flutter_bloc: ^9.0.0
+  equatable: ^2.0.7
+  model_viewer_plus: ^1.9.1
+  webview_flutter: ^4.10.0
+  flutter_launcher_icons: ^0.14.3
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/app_icon.png"
+  adaptative_icon_background: "#ffffff"
+  adaptative_icon_foreground: "assets/images/app_icon.png"
+
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - data/
+    - assets/images/
+    - assets/3d/
+    - assets/audios/
+    - assets/audios/fox/
+    - assets/audios/fox/corneria/
+    - assets/audios/falco/    
+    - assets/audios/falco/corneria/
+    - assets/audios/peppy/
+    - assets/audios/peppy/corneria/
+    - assets/audios/slippy/
+    - assets/audios/slippy/corneria/
+    - assets/audios/rob/sector z/
+    - assets/audios/bill/katina/
+    - assets/audios/bill/solar/
+    - assets/audios/bill/sector x/
+    - assets/audios/katt/zoness/
+    - assets/audios/katt/sector z/
+    - assets/audios/katt/macbeth/
+    - assets/audios/pepper/
+    - assets/audios/pepper/corneria/
+    - assets/audios/pepper/meteo/
+    - assets/audios/pepper/fichina/
+    - assets/audios/pepper/sector x/
+    - assets/audios/pepper/titania/
+    - assets/audios/pepper/macbeth/
+    - assets/audios/pepper/bolse/
+    - assets/audios/pepper/katina/
+    - assets/audios/pepper/solar/
+    - assets/audios/pepper/aquas/
+    - assets/audios/pepper/zoness/
+    - assets/audios/pepper/sector z/
+    - assets/audios/pepper/area 6/
+    - assets/audios/granga/corneria/
+    - assets/audios/carrier_captain/corneria/
+    - assets/audios/meteo_crusher/meteo/
+    - assets/audios/wolf/fichina/
+    - assets/audios/wolf/bolse/
+    - assets/audios/wolf/venom/
+    - assets/audios/leon/fichina/
+    - assets/audios/leon/bolse/
+    - assets/audios/leon/venom/
+    - assets/audios/pigma/fichina/
+    - assets/audios/pigma/bolse/
+    - assets/audios/pigma/venom/
+    - assets/audios/andrew/fichina/
+    - assets/audios/andrew/bolse/
+    - assets/audios/andrew/venom/
+    - assets/audios/shogun/sector y/
+    - assets/audios/train_engineer/macbeth/
+    - assets/audios/spyborg/titania/
+    - assets/audios/submarine_captain/zoness/
+    - assets/audios/caiman/area 6/
+    - assets/audios/area6_commander/area 6/
+    - assets/audios/andross/venom/
+    - assets/audios/james/
+    - assets/audios/yaru/
+    
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/to/resolution-aware-images
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/to/asset-from-package
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  fonts:
+    - family: Star-Fox-Starwing
+      fonts:
+        - asset: assets/fonts/Star-Fox-Starwing.ttf
+          weight: 700
+    - family: Arwing
+      fonts:
+        - asset: assets/fonts/Arwing.ttf
+          weight: 700
+    - family: Chicago
+      fonts:
+        - asset: assets/fonts/ChicagoFLF.ttf
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/to/font-from-package
