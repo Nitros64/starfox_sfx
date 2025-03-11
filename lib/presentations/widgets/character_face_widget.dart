@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:starfox_sfx/bloc/face_animation_bloc.dart';
+import 'package:starfox_sfx/core/util/character_utility.dart';
 import 'package:starfox_sfx/core/util/game_assets.dart';
 import 'package:starfox_sfx/features/domain/entities/character.dart';
 import 'package:starfox_sfx/features/domain/mapper/mouth_mapper.dart';
@@ -62,22 +63,25 @@ class CharacterFaceWidgetState extends State<CharacterFaceWidget>
         );
   }
 
-  RepaintBoundary createRepaint() => RepaintBoundary(
-    child: Container(
-      color: Color.fromARGB(20, 0, 0, 0),
-      child: FittedBox(
-        child: SizedBox(
-          width: 300,
-          height: 300,
-          child: ValueListenableBuilder<bool>(
-            valueListenable: isMouthOpen,
-            builder: (context, value, child) {
-              return CustomPaint(painter: _faceAnimationPainterWidget());
-            },
+  GestureDetector createRepaint() => GestureDetector( 
+    onDoubleTap: _onDoubleTapHandler,
+    child: RepaintBoundary(
+      child: Container(
+        color: Color.fromARGB(20, 0, 0, 0),
+        child: FittedBox(
+          child: SizedBox(
+            width: 300,
+            height: 300,
+            child: ValueListenableBuilder<bool>(
+              valueListenable: isMouthOpen,
+              builder: (context, value, child) {
+                return CustomPaint(painter: _faceAnimationPainterWidget());
+              },
+            ),
           ),
         ),
       ),
-    ),
+    )
   );
 
   FaceAnimationPainter _faceAnimationPainterWidget() => FaceAnimationPainter(
@@ -90,4 +94,12 @@ class CharacterFaceWidgetState extends State<CharacterFaceWidget>
       isMouthOpen.value
           ? MouthMapper.toRect(widget.charData.mountOpen)
           : MouthMapper.toRect(widget.charData.mountClosed);
+
+  void _onDoubleTapHandler(){
+    if(checkCharacterSecret(widget.charData.name)){
+      setState(() {
+        swapCharacters(widget.charData, getCharacterSecretElement(widget.charData.name));
+      });      
+    }
+  }
 }

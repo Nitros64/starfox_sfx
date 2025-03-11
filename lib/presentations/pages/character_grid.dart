@@ -12,14 +12,14 @@ class CharacterGridScreen extends StatefulWidget {
   State<StatefulWidget> createState() => CharacterGridScreenState();
 }
 
-class CharacterGridScreenState extends State<CharacterGridScreen>{
+class CharacterGridScreenState extends State<CharacterGridScreen> {
   static const int rows = 6;
   static const int columns = 4;
   static const double radius = 10;
   static const String _title = "Select Character";
 
   @override
-  Widget build(BuildContext context) {    
+  Widget build(BuildContext context) {
     final characters = CharacterDataProvider.characters;
     final int itemCount = (rows * columns).clamp(0, characters.length);
 
@@ -42,7 +42,7 @@ class CharacterGridScreenState extends State<CharacterGridScreen>{
               crossAxisSpacing: 8.0,
               mainAxisSpacing: 8.0,
             ),
-            itemCount: itemCount, 
+            itemCount: itemCount,
             itemBuilder: (context, index) {
               final character = characters[index];
 
@@ -57,18 +57,22 @@ class CharacterGridScreenState extends State<CharacterGridScreen>{
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder:(context) => CharacterPage(characterName: character.name),
+                          builder:
+                              (context) =>
+                                  CharacterPage(characterName: character.name),
                         ),
                       );
                     },
-                    onDoubleTap: (){                     
-                       final secret = CharacterDataProvider.characterSecrets
-                          .firstWhere( (char) => char.name.toLowerCase().contains(character.name),
-                          orElse: () => throw Exception("Character not found"),);                       
+                    onDoubleTap: () {                      
+                      if (checkCharacterSecret(character.name)) {
                         setState(() {
-                          swapCharacters(character,secret);                            
+                          swapCharacters(
+                            character,
+                            getCharacterSecretElement(character.name),
+                          );
                         });
-                    }
+                      }
+                    },
                   );
                 },
               );
@@ -77,5 +81,5 @@ class CharacterGridScreenState extends State<CharacterGridScreen>{
         ),
       ),
     );
-  } 
+  }
 }
