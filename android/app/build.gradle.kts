@@ -8,7 +8,7 @@ plugins {
 android {
     namespace = "com.example.starfox_sfx"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = "27.0.12077973"
+    ndkVersion = "28.2.13676358"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -24,7 +24,8 @@ android {
         applicationId = "com.example.starfox_sfx"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = 21
+        // Android 10 (API 29): equilibrio entre compatibilidad regional y WebView moderno.
+        minSdk = 29
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName

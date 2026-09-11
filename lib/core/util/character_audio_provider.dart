@@ -1,27 +1,38 @@
-import 'dart:convert';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter/services.dart' show AssetManifest, rootBundle;
 import 'package:starfox_sfx/core/util/character_data_provider.dart';
 import 'package:starfox_sfx/features/domain/entities/character.dart';
 
 class _CharacterAudioProvider {
-
   static const String _defaultWorld = 'default';
+  static const Set<String> _playableAudioExtensions = {
+    '.aiff',
+    '.m4a',
+    '.mp3',
+    '.wav',
+  };
 
   _CharacterAudioProvider();
 
   Future<List<String>> listAssetFiles(String directoryPath) async {
-    final manifestJson = await rootBundle.loadString('AssetManifest.json');
-    final Map<String, dynamic> manifestMap = json.decode(manifestJson);
+    final assetManifest = await AssetManifest.loadFromAssetBundle(rootBundle);
 
-    return manifestMap.keys
-        .where((path) => path.startsWith(directoryPath))
+    return assetManifest
+        .listAssets()
+        .where(
+          (path) =>
+              path.startsWith(directoryPath) &&
+              _playableAudioExtensions.any(path.toLowerCase().endsWith),
+        )
         .toList();
-  }  
+  }
 
-  Future<Character> loadCharacter({required String nameCharacter, String world = _defaultWorld}) async {
+  Future<Character> loadCharacter({
+    required String nameCharacter,
+    String world = _defaultWorld,
+  }) async {
     try {
-      if(world == _defaultWorld){
+      if (world == _defaultWorld) {
         return await loadAllCharacterAudioFiles(nameCharacter);
       }
 
@@ -31,23 +42,33 @@ class _CharacterAudioProvider {
         print('Error al cargar el archivo JSON: $e');
       }
       rethrow;
-    }    
+    }
   }
 
   Future<Character> loadAllCharacterAudioFiles(String nameCharacter) async {
-    List<String> characterAudioFiles = await listAssetFiles('assets/audios/$nameCharacter');
-    Character character = CharacterDataProvider.characters.firstWhere((c) => c.name == nameCharacter);
+    List<String> characterAudioFiles = await listAssetFiles(
+      'assets/audios/$nameCharacter',
+    );
+    Character character = CharacterDataProvider.characters.firstWhere(
+      (c) => c.name == nameCharacter,
+    );
     character.voices = characterAudioFiles;
     return character;
   }
 
-  Future<Character> loadCharacterAudioFilesByWorld(String nameCharacter, String world) async {
-    List<String> characterAudioFiles = await listAssetFiles('assets/audios/$nameCharacter/$world');
-    Character character = CharacterDataProvider.characters.firstWhere((c) => c.name == nameCharacter);
+  Future<Character> loadCharacterAudioFilesByWorld(
+    String nameCharacter,
+    String world,
+  ) async {
+    List<String> characterAudioFiles = await listAssetFiles(
+      'assets/audios/$nameCharacter/$world',
+    );
+    Character character = CharacterDataProvider.characters.firstWhere(
+      (c) => c.name == nameCharacter,
+    );
     character.voices = characterAudioFiles;
     return character;
   }
-
 }
 
 final characterProvider = _CharacterAudioProvider();
