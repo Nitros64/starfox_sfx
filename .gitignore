@@ -42,6 +42,7 @@ app.*.map.json
 # Recursos locales necesarios para compilar, pero que no se versionan.
 /assets/
 /data/
+/docs/
 
 # Carpeta temporal creada al extraer el archivo de recursos RAR.
 # Los recursos usados por la app viven en assets/ y data/ en la raíz.
