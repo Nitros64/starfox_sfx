@@ -1,5 +1,14 @@
 # starfox_sfx
 
+![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?logo=flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-3.7-0175C2?logo=dart&logoColor=white)
+![Android](https://img.shields.io/badge/Android-API%2029%2B-3DDC84?logo=android&logoColor=white)
+![iOS](https://img.shields.io/badge/iOS-15.0%2B-000000?logo=ios&logoColor=white)
+![macOS](https://img.shields.io/badge/macOS-12.0%2B-000000?logo=apple&logoColor=white)
+![Bloc](https://img.shields.io/badge/State%20Management-Bloc-blue)
+![Audio](https://img.shields.io/badge/Audio-just%5Faudio-green)
+![3D](https://img.shields.io/badge/3D-model%5Fviewer%5Fplus-orange)
+
 Aplicación Flutter de sonidos de *Star Fox*. Los recursos necesarios para
 compilar (`assets/` y `data/`) se mantienen localmente y no se versionan.
 
