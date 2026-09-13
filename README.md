@@ -3,6 +3,12 @@
 Aplicación Flutter de sonidos de *Star Fox*. Los recursos necesarios para
 compilar (`assets/` y `data/`) se mantienen localmente y no se versionan.
 
+## Capturas de pantalla
+
+![Captura de pantalla 2025-03-11 013616](https://github.com/user-attachments/assets/87e9c87c-4c25-4f08-88be-063140ce289e)
+![Captura de pantalla 2025-03-11 015852](https://github.com/user-attachments/assets/409c39bf-60a5-4fcd-a4a3-8ff655ce7d94)
+![Captura de pantalla 2025-03-11 015954](https://github.com/user-attachments/assets/ac6faf2b-bc7a-40a9-b3f4-f1a3c1b4604c)
+
 ## Preparar una Mac nueva
 
 Instala estos componentes:
