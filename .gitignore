@@ -32,6 +32,7 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+pubspec.lock
 
 # Symbolication related
 app.*.symbols
@@ -47,6 +48,7 @@ app.*.map.json
 # Carpeta temporal creada al extraer el archivo de recursos RAR.
 # Los recursos usados por la app viven en assets/ y data/ en la raíz.
 /starfox_sfx/
+/starfox_sfx.rar
 
 # Android Studio will place build artifacts here
 /android/app/debug

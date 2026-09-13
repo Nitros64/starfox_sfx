@@ -5,11 +5,13 @@ import 'package:starfox_sfx/features/domain/entities/character.dart';
 
 class _CharacterAudioProvider {
   static const String _defaultWorld = 'default';
-  static const Set<String> _playableAudioExtensions = {
+  // iOS no reproduce .ogg de forma nativa
+  static final Set<String> _playableAudioExtensions = {
     '.aiff',
     '.m4a',
     '.mp3',
     '.wav',
+    if (kIsWeb || defaultTargetPlatform != TargetPlatform.iOS) '.ogg',
   };
 
   _CharacterAudioProvider();
