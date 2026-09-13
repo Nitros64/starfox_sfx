@@ -1,7 +1,7 @@
 # starfox_sfx
 
 ![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?logo=flutter&logoColor=white)
-![Dart](https://img.shields.io/badge/Dart-3.7-0175C2?logo=dart&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-3.13-0175C2?logo=dart&logoColor=white)
 ![Android](https://img.shields.io/badge/Android-API%2029%2B-3DDC84?logo=android&logoColor=white)
 ![iOS](https://img.shields.io/badge/iOS-15.0%2B-000000?logo=ios&logoColor=white)
 ![macOS](https://img.shields.io/badge/macOS-12.0%2B-000000?logo=apple&logoColor=white)
